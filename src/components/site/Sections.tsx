@@ -68,7 +68,7 @@ export function About() {
             {a.blocks.map((b: any, i: number) => (
               <div key={i} className="reveal group bg-card p-6 transition-colors hover:bg-muted">
                 <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary text-accent transition-transform group-hover:-translate-y-1">
-                  <Icon name={ABOUT_ICONS[i % 4]} />
+                  <Icon name={ABOUT_ICONS[i % 4] ?? "box"} />
                 </span>
                 <h3 className="mt-4 text-base font-semibold text-primary">{b.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{b.text}</p>
@@ -125,7 +125,7 @@ const WHY_ICONS = ["layers", "bolt", "award", "users", "shield", "handshake"];
 
 export function WhyUs() {
   const w = useStore<any>(KEYS.content).why;
-  const features = w.features.map((f: any, i: number) => ({ ...f, icon: WHY_ICONS[i % 6] })).filter((f: any) => f.visible);
+  const features = w.features.map((f: any, i: number) => ({ ...f, icon: WHY_ICONS[i % 6] ?? "box" })).filter((f: any) => f.visible);
   return (
     <section id="why" className="relative overflow-hidden bg-navy py-24 md:py-32">
       <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full border border-navy-foreground/10" />

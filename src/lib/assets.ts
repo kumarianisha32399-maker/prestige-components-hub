@@ -17,9 +17,10 @@ export const ASSETS: Record<string, string> = {
   kitchenInterior, connectors, kitchenStorage, modularDark, kitchenFittings,
 };
 
+const ABOUT: string = about;
 export function resolveImage(src?: string): string {
-  if (!src) return ASSETS.about;
-  if (src.startsWith("asset:")) return ASSETS[src.slice(6)] ?? ASSETS.about;
+  if (!src) return ABOUT;
+  if (src.startsWith("asset:")) return ASSETS[src.slice(6)] ?? ABOUT;
   return src;
 }
-export const FALLBACK_IMAGE = ASSETS.about;
+export const FALLBACK_IMAGE = ABOUT;
